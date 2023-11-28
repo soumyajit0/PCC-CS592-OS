@@ -33,12 +33,9 @@ int main()
 		sleep(rand()%5);
 		sem_wait(&shared->full);
 		sem_wait(&shared->mutex);
-		if(shared->in!=shared->out)
-		{
-			int n=shared->buffer[shared->out];
-			shared->out=(shared->out+1)%size;
-			printf("%d is consumed\n",n);
-		}
+		int n=shared->buffer[shared->out];
+		shared->out=(shared->out+1)%size;
+		printf("%d is consumed\n",n);
 		sem_post(&shared->mutex);
 		sem_post(&shared->empty);
 	}
@@ -46,5 +43,6 @@ int main()
 	sem_destroy(&shared->full);
 	sem_destroy(&shared->empty);
 	shmdt(shared);
+	shmctl(shmid,IPC_RMID,NULL);
 	return 0;
 }
