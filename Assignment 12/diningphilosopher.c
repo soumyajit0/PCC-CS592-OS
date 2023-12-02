@@ -11,25 +11,25 @@ void philosopher(int id, int* chopsticks) {
     int right = (id + 1) % N;
 
     while (1) {
-        printf("Philosopher %d is thinking.\n", id);
+        printf("Philosopher %d is thinking.\n", id+1);
         sleep(1);  
         while (chopsticks[left] == 0) {
             sleep(1);
         }
         chopsticks[left] = 0;
-        printf("Philosopher %d picks up left chopstick %d.\n", id, left);
+        printf("Philosopher %d picks up left chopstick %d.\n", id+1, left+1);
         while (chopsticks[right] == 0) {
             sleep(1);
         }
         chopsticks[right] = 0;
-        printf("Philosopher %d picks up right chopstick %d and starts eating.\n", id, right);
+        printf("Philosopher %d picks up right chopstick %d and starts eating.\n", id+1, right+1);
 
         sleep(1); 
         chopsticks[left] = 1;
-        printf("Philosopher %d releases left chopstick %d.\n", id, left);
+        printf("Philosopher %d releases left chopstick %d.\n", id+1, left+1);
 
         chopsticks[right] = 1;
-        printf("Philosopher %d releases right chopstick %d.\n", id, right);
+        printf("Philosopher %d releases right chopstick %d.\n", id+1, right+1);
     }
 }
 
