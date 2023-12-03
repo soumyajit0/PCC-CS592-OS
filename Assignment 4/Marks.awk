@@ -44,16 +44,16 @@ NR!=1{
 }
 END{
 	if (choice==1){
-                print name," got the Highest Marks of",highest
-        }       
-        else if (choice==2){
-        	print "Average for Sub 1 :",sub1/n
+        print name," got the Highest Marks of",highest
+    }       
+    else if (choice==2){
+        print "Average for Sub 1 :",sub1/n
 		print "Average for Sub 2 :",sub2/n
 		print "Average for Sub 3 :",sub3/n
-        }       
-        else if (choice==3){
-        	print name1,"got the Highest Marks of",highest1,"in Subject 1"
+    }       
+    else if (choice==3){
+        print name1,"got the Highest Marks of",highest1,"in Subject 1"
 		print name2,"got the Highest Marks of",highest2,"in Subject 2"
 		print name3,"got the Highest Marks of",highest3,"in Subject 3"
-        }
+    }
 }

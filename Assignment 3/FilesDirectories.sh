@@ -11,6 +11,7 @@ do
 			read -p "Enter the name of the File or Directory to check its permissions : " checkPerms
 			perms=$(ls -l "${checkPerms}" | cut -d " " -f1 | cut -c2-)
 			# perms=$(ls -l | grep "$name" | cut -d " " -f1 | cut -c2-)
+			# ls -l "${checkPerms}" | cut -d " " -f1 | cut -c2-9
 			echo "The Permissions for ${checkPerms} are : $perms"
 			;;
 		2)
@@ -26,8 +27,8 @@ do
 			;;
 		3)
 			read -p "Enter the name of the File to check its Last Modification Time : " checkTime
-			date=$(ls -l "${checkTime}" | cut -d " " -f6,7)
-			time=$(ls -l "${checkTime}" | cut -d " " -f8)
+			date=$(ls -l "${checkTime}" | tr -s " " | cut -d " " -f6,7)
+			time=$(ls -l "${checkTime}" | tr -s " " | cut -d " " -f8)
 			echo "${checkTime} was last modified on : ${date} at : ${time}"
 			;;
 		4)

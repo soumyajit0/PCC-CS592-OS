@@ -1,6 +1,7 @@
 #!/bin/bash
 read -p "Enter the no. of Array elements : " n
 i=0
+declare -a arr
 while [ $i -lt $n ]
 do
 	read arr[$i]
